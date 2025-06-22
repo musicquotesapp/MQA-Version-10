@@ -3,13 +3,13 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Music Quotes</title>
+  <title>Music Quotes App</title>
   <style>
     body {
       margin: 0;
       font-family: 'Helvetica Neue', sans-serif;
-      background-color: #1e1d17;
-      color: #f4eedb;
+      background: #111;
+      color: #fff;
       scroll-behavior: smooth;
     }
 
@@ -21,19 +21,18 @@
     h1, h2 {
       font-weight: 700;
       margin-bottom: 20px;
-      color: #f4eedb;
     }
 
-    /* Hero Section with Logo Background */
+    /* Hero Section */
     .hero {
-      background: #1e1d17 url('logo.png') no-repeat center center / contain;
+      background: url('https://via.placeholder.com/1600x900?text=Music+Quotes+Logo') no-repeat center center/cover;
       height: 100vh;
       display: flex;
       justify-content: center;
       align-items: center;
       flex-direction: column;
       position: relative;
-      color: #f4eedb;
+      color: white;
       text-align: center;
     }
 
@@ -41,7 +40,7 @@
       content: "";
       position: absolute;
       inset: 0;
-      background: rgba(30, 29, 23, 0.85); /* dark overlay for text contrast */
+      background: rgba(0, 0, 0, 0.7);
     }
 
     .hero h1 {
@@ -107,8 +106,8 @@
       padding: 10px 20px;
       margin-left: 10px;
       font-size: 1em;
-      background: #fdb53e;
-      color: #1e1d17;
+      background: #fdd835;
+      color: #000;
       border: none;
       border-radius: 5px;
       cursor: pointer;
@@ -121,18 +120,18 @@
 
     .button-style {
       padding: 12px 24px;
-      background: #fdb53e;
+      background: #fdd835;
       border: none;
       border-radius: 6px;
       font-weight: bold;
       cursor: pointer;
       font-size: 1em;
-      color: #1e1d17;
+      color: #000;
       margin-top: 20px;
     }
 
     .button-style:hover {
-      background: #ffc95c;
+      background: #ffe566;
     }
 
     @media screen and (max-width: 768px) {
@@ -199,7 +198,7 @@
   </section>
 
   <script>
-    // Fade-in on scroll
+    // Intersection fade-in logic
     const faders = document.querySelectorAll('.fade-in');
     const observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
@@ -211,7 +210,7 @@
 
     faders.forEach(fader => observer.observe(fader));
 
-    // Quotes logic
+    // Quotes array
     const quotes = [
       "“Turn your wounds into wisdom.” – Jay-Z",
       "“You gotta keep your head up.” – 2Pac",
@@ -228,13 +227,13 @@
     let quoteIndex = 0;
     const quoteBox = document.getElementById('quote-box');
 
-    // Rotate quotes
+    // Rotate quotes every 3 seconds
     setInterval(() => {
       quoteIndex = (quoteIndex + 1) % quotes.length;
       quoteBox.innerText = quotes[quoteIndex];
     }, 3000);
 
-    // Lyric of the Day button
+    // Show random quote on button click
     function showRandomQuote() {
       const random = Math.floor(Math.random() * quotes.length);
       document.getElementById('daily-quote').innerText = quotes[random];
