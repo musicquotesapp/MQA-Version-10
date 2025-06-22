@@ -25,44 +25,44 @@
 
     /* Hero Section */
     .hero {
-      background: #000 url('https://i.ibb.co/9q9xNPh/music-quotes-logo.png') no-repeat center top / 160px;
+      background: #000;
       height: 100vh;
       display: flex;
       justify-content: center;
       align-items: center;
       flex-direction: column;
-      padding-top: 200px;
+      padding-top: 100px;
       position: relative;
       text-align: center;
-    }
-
-    .hero::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(180deg, rgba(0, 0, 0, 0.95), rgba(50, 50, 50, 0.3));
-      z-index: 0;
     }
 
     .hero h1 {
       position: relative;
       max-width: 800px;
-      z-index: 1;
       font-size: 2.5rem;
       color: #e0e0e0;
     }
 
     .hero .app-name {
-      position: relative;
       font-size: 1.3rem;
       font-weight: bold;
       color: #888;
-      z-index: 1;
       margin-top: 10px;
       letter-spacing: 1px;
     }
 
-    /* Floating CTA Button */
+    .logo-divider {
+      padding: 40px 0;
+      background: #000;
+    }
+
+    .logo-divider img {
+      width: 120px;
+      height: auto;
+      display: block;
+      margin: 0 auto;
+    }
+
     .floating-cta {
       position: fixed;
       bottom: 20px;
@@ -147,11 +147,6 @@
         padding: 0 15px;
       }
 
-      .hero {
-        background-size: 120px;
-        padding-top: 180px;
-      }
-
       .hero .app-name {
         font-size: 1.1rem;
       }
@@ -181,6 +176,11 @@
     <div class="app-name">Music Quotes</div>
   </section>
 
+  <!-- Logo Between Sections -->
+  <div class="logo-divider">
+    <img src="https://i.ibb.co/9q9xNPh/music-quotes-logo.png" alt="Music Quotes Logo">
+  </div>
+
   <!-- Problem & Solution -->
   <section>
     <h2>Ever felt stuck, down, or drained?</h2>
@@ -188,4 +188,81 @@
   </section>
 
   <!-- How It Works -->
-  <section cla
+  <section class="how-it-works">
+    <h2>How It Works</h2>
+    <ul>
+      <li>* Choose your vibe (Motivation, Inspiration, etc.)</li>
+      <li>* Choose your genre (HipHop, Trap, Jazz…)</li>
+      <li>* Receive quotes daily.</li>
+    </ul>
+  </section>
+
+  <!-- Lyric of the Day -->
+  <section>
+    <h2>Lyric of the Day</h2>
+    <button class="button-style" onclick="showRandomQuote()">Get My Lyric</button>
+    <div id="daily-quote">Click the button to see your lyric.</div>
+  </section>
+
+  <!-- Rotating Quotes -->
+  <section>
+    <h2>Example Quotes</h2>
+    <div class="quotes" id="quote-box">“Turn your wounds into wisdom.” – Jay-Z</div>
+  </section>
+
+  <!-- Email Waitlist -->
+  <section>
+    <h2>Join the Waitlist</h2>
+    <form class="email-form">
+      <input type="email" placeholder="Enter your email" required>
+      <button type="submit">Notify Me</button>
+    </form>
+  </section>
+
+  <!-- Floating Call-to-Action -->
+  <button class="floating-cta" onclick="showRandomQuote()">🎧 Lyric of the Day</button>
+
+  <!-- Background Hip-Hop Beat -->
+  <audio id="bg-audio" autoplay loop muted>
+    <source src="https://filesamples.com/samples/audio/mp3/sample3.mp3" type="audio/mp3">
+    Your browser does not support the audio element.
+  </audio>
+
+  <script>
+    const quotes = [
+      "“Turn your wounds into wisdom.” – Jay-Z",
+      "“You gotta keep your head up.” – 2Pac",
+      "“The marathon continues.” – Nipsey Hussle",
+      "“Sky is the limit.” – Biggie Smalls",
+      "“Dreams don't have deadlines.” – LL Cool J",
+      "“I’m not a businessman, I’m a business, man.” – Jay-Z",
+      "“Believe in yourself when no one else does.” – Eminem",
+      "“Everyday I'm hustlin'.” – Rick Ross",
+      "“Started from the bottom now we here.” – Drake",
+      "“Life without dreaming is a life without meaning.” – Wale"
+    ];
+
+    let quoteIndex = 0;
+    const quoteBox = document.getElementById('quote-box');
+
+    setInterval(() => {
+      quoteIndex = (quoteIndex + 1) % quotes.length;
+      quoteBox.innerText = quotes[quoteIndex];
+    }, 3000);
+
+    function showRandomQuote() {
+      const random = Math.floor(Math.random() * quotes.length);
+      document.getElementById('daily-quote').innerText = quotes[random];
+    }
+
+    document.body.addEventListener('click', () => {
+      const audio = document.getElementById('bg-audio');
+      if (audio.muted) {
+        audio.muted = false;
+        audio.play();
+      }
+    }, { once: true });
+  </script>
+
+</body>
+</html>
