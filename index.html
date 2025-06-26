@@ -189,6 +189,32 @@
   <input type="email" name="musicquotesapp@gmail.com" placeholder="Enter your email" required>
   </section>
 
+  <script>
+  const form = document.querySelector('.email-form');
+  const thanks = document.getElementById('Talk To You Soon');
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    const data = new FormData(form);
+    const action = form.action;
+
+    fetch(action, {
+      method: 'POST',
+      body: data,
+      headers: { 'Accept': 'application/json' }
+    }).then(response => {
+      if (response.ok) {
+        form.reset();
+        grecaptcha.reset(); // reset reCAPTCHA
+        thanks.style.display = 'block';
+      } else {
+        alert("Oops! Something went wrong.");
+      }
+    });
+  });
+</script>
+
   <!-- Optional Background Music -->
   <audio id="bg-audio" autoplay loop muted>
     <source src="https://filesamples.com/samples/audio/mp3/sample3.mp3" type="audio/mp3">
