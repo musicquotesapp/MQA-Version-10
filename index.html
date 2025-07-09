@@ -185,10 +185,21 @@
   <!-- Email Waitlist -->
   <section>
        <h2>Join the Waitlist</h2>
-    <form class="email-form">
-      <input type="email" placeholder="Enter your email" required>
-      <button type="submit">Notify Me</button>
-    </form>
+    <form
+  action="https://formspree.io/f/manjlagq"
+  method="POST"
+>
+  <label>
+    Your email:
+    <input type="email" name="email">
+  </label>
+  <label>
+    Your message:
+    <textarea name="message"></textarea>
+  </label>
+  <!-- your other form fields go here -->
+  <button type="submit">Send</button>
+</form>
   </section>
 
   
