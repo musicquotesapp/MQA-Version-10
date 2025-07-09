@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -10,11 +11,18 @@
       background: #000;
       color: #e0e0e0;
       scroll-behavior: smooth;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
     }
 
     section {
       padding: 35px 20px;
       text-align: center;
+      flex-grow: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
 
     h1, h2 {
@@ -50,6 +58,111 @@
     /* Hero Section */
     .hero {
       background: #000;
-      height: 60vh;
-      display: flex;
-      justify-content
+      width: 100%;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .hero-content {
+      padding: 0 20px;
+      text-align: center;
+    }
+
+    .quote {
+      font-size: 1.5rem;
+      font-style: italic;
+      margin-bottom: 15px;
+      line-height: 1.4;
+    }
+
+    .author {
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin-bottom: 20px;
+    }
+
+    /* Button */
+    .new-quote-btn {
+      padding: 10px 25px;
+      font-size: 1rem;
+      background: #1db954;
+      color: #fff;
+      border: none;
+      border-radius: 25px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .new-quote-btn:hover {
+      background: #17a34a;
+    }
+
+    /* Footer */
+    footer {
+      padding: 20px 0;
+      font-size: 0.9rem;
+      color: #777;
+      text-align: center;
+      border-top: 1px solid #222;
+      margin-top: auto;
+      background: #000;
+    }
+  </style>
+</head>
+<body>
+  <header class="logo-top">
+    <!-- Add your logo image source here -->
+    <img src="logo.png" alt="Music Quotes Logo" class="logo-img" />
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-content">
+        <p class="quote" id="quote">"Music expresses that which cannot be put into words."</p>
+        <p class="author" id="author">— Victor Hugo</p>
+        <button class="new-quote-btn" id="newQuoteBtn">New Quote</button>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    &copy; 2024 Music Quotes App
+  </footer>
+
+  <script>
+    const quotes = [
+      {
+        text: "Music expresses that which cannot be put into words.",
+        author: "Victor Hugo"
+      },
+      {
+        text: "Where words fail, music speaks.",
+        author: "Hans Christian Andersen"
+      },
+      {
+        text: "One good thing about music, when it hits you, you feel no pain.",
+        author: "Bob Marley"
+      },
+      {
+        text: "Music is the universal language of mankind.",
+        author: "Henry Wadsworth Longfellow"
+      },
+      {
+        text: "Without music, life would be a mistake.",
+        author: "Friedrich Nietzsche"
+      }
+    ];
+
+    const quoteEl = document.getElementById('quote');
+    const authorEl = document.getElementById('author');
+    const newQuoteBtn = document.getElementById('newQuoteBtn');
+
+    newQuoteBtn.addEventListener('click', () => {
+      const randomIndex = Math.floor(Math.random() * quotes.length);
+      const randomQuote = quotes[randomIndex];
+      quoteEl.textContent = `"${randomQuote.text}"`;
+      authorEl.textContent = `— ${randomQuote.author}`;
+    });
+  </script>
+</body>
+</html>
