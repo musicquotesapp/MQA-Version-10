@@ -11,18 +11,11 @@
       background: #000;
       color: #e0e0e0;
       scroll-behavior: smooth;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
     }
 
     section {
-      padding: 35px 20px;
+      padding: 80px 20px;
       text-align: center;
-      flex-grow: 1;
-      display: flex;
-      justify-content: center;
-      align-items: center;
     }
 
     h1, h2 {
@@ -33,136 +26,250 @@
     /* Logo Section */
     .logo-top {
       background: #000;
-      padding: 30px 0 5px;
+      padding: 40px 0 10px;
       display: flex;
       justify-content: center;
       align-items: center;
     }
 
     .logo-img {
-      width: 160px;
+      width: 240px;
       height: auto;
       display: block;
-      opacity: 0;
-      transform: translateY(-40px);
-      animation: slideDown 1.2s ease-out forwards;
-    }
-
-    @keyframes slideDown {
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
     }
 
     /* Hero Section */
     .hero {
       background: #000;
-      width: 100%;
+      height: 80vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      text-align: center;
+    }
+
+    .hero h1 {
+      max-width: 800px;
+      font-size: 2.5rem;
+      color: #e0e0e0;
+    }
+
+    .how-it-works ul {
+      list-style: none;
+      padding: 0;
       max-width: 600px;
-      margin: 0 auto;
+      margin: auto;
     }
 
-    .hero-content {
-      padding: 0 20px;
-      text-align: center;
+    .how-it-works li {
+      margin: 15px 0;
+      font-size: 1.1em;
     }
 
-    .quote {
-      font-size: 1.5rem;
+    .quotes, #daily-quote {
       font-style: italic;
-      margin-bottom: 15px;
-      line-height: 1.4;
+      font-size: 1.4em;
+      min-height: 80px;
+      margin: 20px auto;
+      max-width: 600px;
     }
 
-    .author {
-      font-size: 1.2rem;
-      font-weight: 600;
-      margin-bottom: 20px;
-    }
-
-    /* Button */
-    .new-quote-btn {
-      padding: 10px 25px;
-      font-size: 1rem;
-      background: #1db954;
-      color: #fff;
+    .email-form input[type="email"] {
+      padding: 10px;
+      width: 250px;
+      border-radius: 4px;
       border: none;
-      border-radius: 25px;
+      background: #222;
+      color: #ccc;
+    }
+
+    .email-form button {
+      padding: 10px 20px;
+      margin-left: 10px;
+      font-size: 1em;
+      background: #fdd835;
+      color: #000;
+      border: none;
+      border-radius: 4px;
       cursor: pointer;
-      transition: background 0.3s ease;
+      font-weight: bold;
     }
 
-    .new-quote-btn:hover {
-      background: #17a34a;
+    .email-form button:hover {
+      background: #ffe566;
     }
 
-    /* Footer */
-    footer {
-      padding: 20px 0;
-      font-size: 0.9rem;
-      color: #777;
-      text-align: center;
-      border-top: 1px solid #222;
-      margin-top: auto;
-      background: #000;
+    .button-style {
+      padding: 12px 24px;
+      background: #fdd835;
+      border: none;
+      border-radius: 6px;
+      font-weight: bold;
+      cursor: pointer;
+      font-size: 1em;
+      color: #000;
+      margin-top: 20px;
     }
+
+    .button-style:hover {
+      background: #ffe566;
+    }
+
+    @media screen and (max-width: 768px) {
+      .hero h1 {
+        font-size: 2rem;
+        padding: 0 15px;
+      }
+
+      .email-form input[type="email"] {
+        width: 70%;
+        margin-bottom: 10px;
+      }
+
+      .email-form button {
+        width: 80%;
+        margin-top: 10px;
+      }
+    }
+    .email-form input[type="email"],
+.email-form textarea {
+  padding: 10px;
+  width: 100%;
+  max-width: 400px;
+  border-radius: 5px;
+  border: none;
+  font-size: 1em;
+  margin-bottom: 10px;
+}
+
+.button-style {
+  padding: 12px 24px;
+  background: #fdd835;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 1em;
+  color: #000;
+  margin-top: 10px;
+}
+
+.button-style:hover {
+  background: #ffe566;
+  }
   </style>
+ 
 </head>
 <body>
-  <header class="logo-top">
-    <!-- Add your logo image source here -->
-    <img src="logo.png" alt="Music Quotes Logo" class="logo-img" />
-  </header>
 
-  <main>
-    <section class="hero">
-      <div class="hero-content">
-        <p class="quote" id="quote">"Music expresses that which cannot be put into words."</p>
-        <p class="author" id="author">— Victor Hugo</p>
-        <button class="new-quote-btn" id="newQuoteBtn">New Quote</button>
-      </div>
-    </section>
-  </main>
+  <!-- Logo Above Hero -->
+  <div class="logo-top">
+    <img src="https://i.postimg.cc/7PzrddMW/Music-Quotes-App-Logo.png" alt="Music Quotes Logo" class="logo-img">
+  </div>
 
-  <footer>
-    &copy; 2024 Music Quotes App
-  </footer>
+  <!-- Hero Section -->
+  <section class="hero">
+    <h1>We Deliver the Hustle, Heart, and Healing of Music—<br>One Lyric at a Time.</h1>
+  </section>
+
+  <!-- Problem & Solution -->
+  <section>
+    <h2>Ever felt stuck, down, or drained?</h2>
+    <p>We built this app to give you the exact lyric that lifts you.</p>
+  </section>
+
+  <!-- How It Works -->
+  <section class="how-it-works">
+    <h2>How It Works</h2>
+    <ul>
+      <li>* Choose your vibe (Motivation, Inspiration, etc.)</li>
+      <li>* Choose your genre (HipHop, Trap, Jazz…)</li>
+      <li>* Receive quotes daily.</li>
+    </ul>
+  </section>
+
+  <!-- Lyric of the Day -->
+  <section>
+    <h2>Lyric of the Day</h2>
+    <button class="button-style" onclick="showRandomQuote()">Get My Lyric</button>
+    <div id="daily-quote">Click the button to see your lyric.</div>
+  </section>
+
+  <!-- App Coming Soon -->
+<section>
+  <h2>App Coming Soon</h2>
+  <p>The healing power of lyrics, coming soon to iOS and Android.</p>
+</section>
+
+
+  <!-- Rotating Quotes -->
+  <section>
+    <h2>Example Quotes</h2>
+    <div class="quotes" id="quote-box">“Turn your wounds into wisdom.” – Jay-Z</div>
+  </section>
+
+  <!-- Email Waitlist -->
+  <section>
+       <h2>Join the Waitlist</h2>
+    <form
+  action="https://formspree.io/f/manjlagq"
+  method="POST"
+  class="email-form"
+>
+  <label style="display: block; margin-bottom: 10px;">
+    Your email:<br>
+    <input type="email" name="email" required>
+  </label>
+
+  <label style="display: block; margin-bottom: 10px;">
+    Your message:<br>
+    <textarea name="message" rows="4" required></textarea>
+  </label>
+
+  <button type="submit" class="button-style">Send</button>
+</form>
+  </section>
+
+ 
+
+  <!-- Optional Background Music -->
+  <audio id="bg-audio" autoplay loop muted>
+    <source src="https://filesamples.com/samples/audio/mp3/sample3.mp3" type="audio/mp3">
+    Your browser does not support the audio element.
+  </audio>
 
   <script>
     const quotes = [
-      {
-        text: "Music expresses that which cannot be put into words.",
-        author: "Victor Hugo"
-      },
-      {
-        text: "Where words fail, music speaks.",
-        author: "Hans Christian Andersen"
-      },
-      {
-        text: "One good thing about music, when it hits you, you feel no pain.",
-        author: "Bob Marley"
-      },
-      {
-        text: "Music is the universal language of mankind.",
-        author: "Henry Wadsworth Longfellow"
-      },
-      {
-        text: "Without music, life would be a mistake.",
-        author: "Friedrich Nietzsche"
-      }
+  "“Turn your wounds into wisdom.” – Jay-Z",
+  "“You gotta keep your head up.” – 2Pac",
+  "“The marathon continues.” – Nipsey Hussle",
+  "“Sky is the limit.” – Biggie Smalls",
+  "“Dreams don't have deadlines.” – LL Cool J",
+  "“I’m not a businessman, I’m a business, man.” – Jay-Z",
+  "“Believe in yourself when no one else does.” – Eminem",
+  "“Everyday I'm hustlin'.” – Rick Ross",
+  "“Started from the bottom now we here.” – Drake",
+  "“Life without dreaming is a life without meaning.” – Wale",
+  "“I'm a survivor, I'm not gon’ give up. I'm not gon’ stop, I'm gon’ work harder.” – Destiny’s Child",
+  "“You're beautiful, just the way you are.” – Bruno Mars",
+  "“Don't stop believin', hold on to that feelin'.” – Journey"
     ];
 
-    const quoteEl = document.getElementById('quote');
-    const authorEl = document.getElementById('author');
-    const newQuoteBtn = document.getElementById('newQuoteBtn');
+    let quoteIndex = 0;
+    const quoteBox = document.getElementById('quote-box');
 
-    newQuoteBtn.addEventListener('click', () => {
-      const randomIndex = Math.floor(Math.random() * quotes.length);
-      const randomQuote = quotes[randomIndex];
-      quoteEl.textContent = `"${randomQuote.text}"`;
-      authorEl.textContent = `— ${randomQuote.author}`;
-    });
+    setInterval(() => {
+      quoteIndex = (quoteIndex + 1) % quotes.length;
+      quoteBox.innerText = quotes[quoteIndex];
+    }, 3000);
+
+    function showRandomQuote() {
+      const random = Math.floor(Math.random() * quotes.length);
+      document.getElementById('daily-quote').innerText = quotes[random];
+    }
+
   </script>
+
 </body>
 </html>
